@@ -1,0 +1,33 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package TugasPraktikum;
+import java.util.Scanner;
+/**
+ *
+ * @author Lenovo
+ */
+public class TugasPraktikum3 {
+    public static void main(String[] args) {
+        int x = 0;
+        int hasil = 0;
+        int[]nilai = new int[] {92,98,76,72,84,01,39};
+        System.out.println("data pada array : ");
+        for (int i = 0; i < nilai.length; i++) {
+            System.out.print(nilai[i] + "\t");
+            
+        }
+        System.out.println( );  
+        System.out.println("bilangan kelipatan tiga adalah ");
+        for (int i = 0; i < nilai.length; i++) {
+           if (hasil == nilai[i] % 3){
+               x++;
+               
+               System.out.println(nilai[i]);
+           }
+            
+        }
+    }
+}
