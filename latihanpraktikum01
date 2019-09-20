@@ -1,0 +1,30 @@
+package LatihanPraktikum;
+import java.util.Scanner;
+/**
+ *
+ * @author Lenovo
+ */
+public class LatihanPraktikum1 {
+    public static void main(String[] args) {
+        String cari;
+        boolean found = true;
+        String[] data = new String[]{"abdurahman","faris","risqullah"};
+        Scanner input = new Scanner(System.in);
+        System.out.println("masukkan data yang dicari");
+        cari = input.nextLine();
+        for (int i = 0; i < data.length; i++) {
+            if(cari == data [i]){
+                found = true;
+                break;
+            }
+            
+        }
+        
+        if (found == true){
+            System.out.println(" horee data telah ditemukan! ");
+            
+        }else{
+            System.out.println("yaahh data yang kamu cari tidak ketemu");
+        }
+    }
+}
