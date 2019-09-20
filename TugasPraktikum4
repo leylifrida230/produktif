@@ -1,0 +1,50 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package TugasPraktikum;
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author Lenovo
+ */
+public class TugasPraktikum4 {
+
+    public static void main(String[] args) {
+        Scanner keyboard = new Scanner(System.in);
+        String find;
+        System.out.println("masukkan kalimat : ");
+        find = keyboard.nextLine();
+        int a = 0;
+        int b = 0;
+        int c = 0;
+        int d = 0;
+        int e = 0;
+        for (int i = 0; i < find.length(); i++) {
+            if (find.charAt(i) == 'a') {
+                a++;
+            }
+            if (find.charAt(i) == 'b') {
+                b++;
+            }
+            if (find.charAt(i) == 'c') {
+                c++;
+            }
+            if (find.charAt(i) == 'd') {
+                d++;
+            }
+            if (find.charAt(i) == 'e') {
+                e++;
+            }
+
+        }
+        System.out.println("jumlah huruf A pada kalimat diatas = " + a);
+        System.out.println("jumlah huruf B pada kalimat diatas = " + b);
+        System.out.println("jumlah huruf C pada kalimat diatas = " + c);
+        System.out.println("jumlah huruf D pada kalimat diatas = " + d);
+        System.out.println("jumlah huruf E pada kalimat diatas = " + e);
+    }
+}
