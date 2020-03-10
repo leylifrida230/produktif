@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Keranjang Belanja</title>
+        <link rel="stylesheet" href="aset/css/bootstrap.min.css">
+        <script src="aset/js/jquery.min.js"></script>
+        <script src="aset/js/popper.min.js"></script>
+        <script src="aset/js/bootstrap.min.js"></script>
+        
+    <style>
+        .margin {
+            margin-left: 5px;
+        }
+    </style>
+    <script type="text/javascript">
+        let edit = false;
+        let indeks = 0;
+        Tambah = () => {
+            edit = false; //mengosongkan form 
+            document.getElementById('nama').value = "";
+            document.getElementById('harga').value = "";
+            document.getElementById('jumlah').value = "";
+        }
+        Edit = (index) => {
+            edit = true;
+            indeks = index;
+            let table = document.getElementById('tabel-belanja');
+            // mengambil data dari tabel 
+            let nama = table.rows[index].cells[0].innerHTML;
+            let harga = table.rows[index].cells[1].innerHTML;
+            let jumlah = table.rows[index].cells[2].innerHTML;
+            //memasukkan data ke form 
+            document.getElementById('nama').value = nama;
+            document.getElementById('harga').value = harga;
+            document.getElementById('jumlah').value = jumlah;
+        }
+        Simpan = () => {
+            let table = document.getElementById('tabel-belanja');
+            //menampuang data dari form 
+            let nama = document.getElementById('nama').value;
+            let harga = document.getElementById('harga').value;
+            let jumlah = document.getElementById('jumlah').value;
+            // jika aksinya edit 
+            if (edit) {
+                table.rows[indeks].cells[0].innerHTML = nama;
+                table.rows[indeks].cells[1].innerHTML = harga;
+                table.rows[indeks].cells[2].innerHTML = jumlah;
+                //jika aksinya tambah 
+            } else {
+                let element = "";
+                element += "<tr>";
+                element += '<td scope="col" id="nam">' + nama + "</td>";
+                element += '<td scope="col" id="har">' + harga + "</td>";
+                element += '<td scope="col" id="jum">' + jumlah + "</td>";
+                element += "<td scope='col'>";
+                element += "<button type='button' class='btn btn-sm btn-info margin' data-toggle='modal' data-target='#modal' ";
+                element += 'onclick="Edit(this.parentElement.parentElement.rowIndex)">Edit</button>';
+                element += '<button type="button" class="btn btn-sm btn-danger margin" ';
+                element += 'onclick="Hapus(this.parentElement.parentElement.rowIndex)">Hapus</button>';
+                element += "</td>";
+                element += "</tr>";
+                table.innerHTML += element;
+            }
+        }
+        Hapus = (index) => {
+            let tabel = document.getElementById('tabel-belanja');
+            tabel.deleteRow(index);
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="card-header bg-info text-white text-center">
+            <h3>Keranjang Belanja</h3>
+        </div>
+        <table class="table table-bordered" id="tabel-belanja">
+            <thead>
+                <tr>
+                    <th scope="col">Nama</th>
+                    <th scope="col">Harga</th>
+                    <th scope="col">Jumlah</th>
+                    <th scope="col">Opsi</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+        <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modal" onclick="Tambah()"> Tambah </button>
+    </div>
+
+
+    <!-- modal -->
+    <div class="modal" id="modal">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4>Keranjang Belanja</h4> <span class="close" data-dismiss="modal">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group"> <label>Nama</label>
+                        <div class="col-sm-12"> <input type="text" id="nama" class="form-control"> </div>
+                    </div>
+                    <div class="form-group"> <label>Harga/Satuan</label>
+                        <div class="col-sm-12"> <input type="number" id="harga" class="form-control"> </div>
+                    </div>
+                    <div class="form-group"> <label>Jumlah</label>
+                        <div class="col-sm-12"> <input type="number" id="jumlah" class="form-control"> </div>
+                    </div>
+                </div>
+                <div class="modal-footer"> <button type="button" class="btn btn-sm btn-success" data-dismiss="modal" onclick="Simpan();"> Simpan </button> </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
