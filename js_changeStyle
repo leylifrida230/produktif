@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>style change</title>
+        <link rel="stylesheet" href="aset/css/bootstrap.min.css">
+        <script src="aset/js/jquery.min.js"></script>
+        <script src="aset/js/popper.min.js"></script>
+        <script src="aset/js/bootstrap.js"></script>
+        <script type="text/javascript">
+            EditStyle = () => {
+            //ambil nilai
+            let panjang = document.getElementById('panjang').value;
+            let lebar = document.getElementById('lebar').value;
+            let warna = document.getElementById('warna').value;
+            
+            //edit style
+            document.getElementById('square').style.width = panjang+"%";
+            document.getElementById('square').style.height = lebar+"%";
+            document.getElementById('square').style.backgroundColor = warna;
+            }
+        </script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="card col-sm-4">
+                    <div class="card-header">
+                        <h4>pengaturan</h4>
+                    </div>
+                    <div class="card-body">
+                        lebar (%)
+                        <input type="number" id="panjang" class="form-control">
+                        tinggi (%)
+                        <input type="number" id="lebar" class="form-control">
+                        warna
+                        <input type="color" id="warna" class="form-control">
+                        <button type="button" class="btn btn-success btn-block" onclick=EditStyle();>jalankan</button>
+                    </div>
+                </div>
+                <div class="card col-sm-8">
+                    <div class="card-header">hasil</div>
+                    <div class="card-body">
+                        <div id="square"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
